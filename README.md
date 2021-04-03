@@ -2,6 +2,10 @@
 
 [![Build Status](https://dev.azure.com/normuradov0143/normuradov/_apis/build/status/pharrukh.trivia-api?branchName=master)](https://dev.azure.com/normuradov0143/normuradov/_build/latest?definitionId=9&branchName=master)
 
+## requirements
+
+Can be found [here](https://github.com/pharrukh/trivia-api/blob/master/requirements.png).
+
 ## Getting Started
 
 ### Installing Dependencies
@@ -100,3 +104,19 @@ createdb trivia_test
 psql trivia_test < trivia.psql
 python test_flaskr.py
 ```
+
+## deployment
+
+Build and release service by Microsoft, Azure DevOps handles the deployment.
+Build pipeline can be found by clicking on the build status badge above 👆.
+
+## about the author
+
+![normuradov logo](https://raw.githubusercontent.com/pharrukh/pharrukh/master/normuradov.png "Logo")
+
+I inspire people and bring value.
+
+[![github](https://raw.githubusercontent.com/pharrukh/pharrukh/master/icons/github.png "GitHub")](https://github.com/pharrukh)
+[![linkedin](https://raw.githubusercontent.com/pharrukh/pharrukh/master/icons/linkedin.png "LinkedIn")](https://www.linkedin.com/in/farrukh-normuradov/)
+[![stackoverflow](https://raw.githubusercontent.com/pharrukh/pharrukh/master/icons/stackoverflow.png "StackOverflow")](https://stackoverflow.com/users/3407539/farrukh-normuradov)
+[![website](https://raw.githubusercontent.com/pharrukh/pharrukh/master/icons/website.png "normuradov.com")](https://www.normuradov.com/)
