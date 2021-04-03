@@ -74,5 +74,5 @@ stages:
             inputs:
               azureSubscription: $(subscription-id)
               appType: functionAppLinux
-              appName: 'example-flask'
+              appName: 'udacity-trivia'
               package: '$(Pipeline.Workspace)/drop/$(Build.BuildId).zip'
