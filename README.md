@@ -1,5 +1,7 @@
 # Full Stack Trivia API Backend
 
+[![Build Status](https://dev.azure.com/normuradov0143/normuradov/_apis/build/status/pharrukh.trivia-api?branchName=master)](https://dev.azure.com/normuradov0143/normuradov/_build/latest?definitionId=9&branchName=master)
+
 ## Getting Started
 
 ### Installing Dependencies
