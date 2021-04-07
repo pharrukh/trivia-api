@@ -110,6 +110,10 @@ python test_flaskr.py
 Build and release service by Microsoft, Azure DevOps handles the deployment.
 Build pipeline can be found by clicking on the build status badge above 👆.
 
+## acknoledgement
+
+Thanks, Hanzhang Zeng, for the [repo](https://github.com/Hazhzeng/functions-wsgi-demo)
+
 ## about the author
 
 ![normuradov logo](https://raw.githubusercontent.com/pharrukh/pharrukh/master/normuradov.png "Logo")
