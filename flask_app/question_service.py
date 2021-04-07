@@ -93,7 +93,10 @@ class Question_Service:
     #   '''
 
     def get_for_quiz(self, category, previous_question_ids):
-        questions = self.get_by_category_name(category)
+        questions = self.questions
+        if category:
+            questions = self.get_by_category_name(category)
+
         for q in questions:
             if q['id'] not in previous_question_ids:
                 return q
