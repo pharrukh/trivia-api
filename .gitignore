@@ -1,4 +1,4 @@
-.vscode
+
 __pycache__
 venv
 
@@ -11,3 +11,5 @@ venv
 .Trashes
 ehthumbs.db
 Thumbs.db
+.python_packages
+.venv
