@@ -39,7 +39,6 @@ def after_request(response):
 @app.route('/quizzes', methods=['POST'])
 @cross_origin()
 def quizzes():
-    print(request.get_json())
     data = request.get_json()
     question = questions_service.get_for_quiz(data['quiz_category'], data['previous_questions'])
     return jsonify({'question': question})
@@ -69,15 +68,11 @@ def questions():
 @app.route('/questions', methods=['POST'])
 @cross_origin()
 def search_questions():
-    print('search_post')
     data = request.get_json()
-    print(request.get_data())
     if not data:
         return '', 400
 
-    print('before search')
     if "searchTerm" in data:
-        print('search')
         questions = questions_service.search(data['searchTerm'])
 
         return jsonify({
@@ -86,9 +81,7 @@ def search_questions():
             'current_category': 'history' # TODO: fix me
         })
 
-    print('there')
     if 'question' in data:
-        print(data)
         questions_service.add(data)
 
         return '', 204
