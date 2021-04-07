@@ -105,7 +105,7 @@ class Question_Service:
     def get_for_quiz(self, category, previous_question_ids):
         questions = self.get_by_category_name(category)
         for q in questions:
-            if q.id not in previous_question_ids:
+            if q['id'] not in previous_question_ids:
                 return q
         return None
 
@@ -299,7 +299,7 @@ questions_coll = [
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"*": {"origins": "http://localhost:3000"}})
+cors = CORS(app, resources={r"*": {"origins": "https://www.normuradov.com/"}})
 questions_service = Question_Service(questions_coll)
 
 #   '''
@@ -334,8 +334,8 @@ def after_request(response):
 @cross_origin()
 def quizzes():
     print(request.get_json())
-    quiz_category, previous_questions = request.get_json()
-    question = questions_service.get_for_quiz(quiz_category, previous_questions)
+    data = request.get_json()
+    question = questions_service.get_for_quiz(data['quiz_category'], data['previous_questions'])
     return jsonify({'question': question})
 
 
