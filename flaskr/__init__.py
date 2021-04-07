@@ -414,69 +414,40 @@ def get_questions_by_category_name(name):
 #   including 404 and 422.
 #   '''
 
-
-# @app.errorhandler(404)
-# def not_found_error(error):
-#     return render_template('errors/404.html'), 404
-
-
-# @app.errorhandler(500)
-# def server_error(error):
-#     return render_template('errors/500.html'), 500
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template('errors/404.html'), 404
 
 
-# @app.errorhandler(401)
-# def server_error(error):
-#     return render_template('errors/401.html'), 401
+@app.errorhandler(500)
+def server_error(error):
+    return render_template('errors/500.html'), 500
 
 
-# @app.errorhandler(403)
-# def server_error(error):
-#     return render_template('errors/403.html'), 403
+@app.errorhandler(401)
+def server_error(error):
+    return render_template('errors/401.html'), 401
 
 
-# @app.errorhandler(422)
-# def server_error(error):
-#     return render_template('errors/422.html'), 422
+@app.errorhandler(403)
+def server_error(error):
+    return render_template('errors/403.html'), 403
 
 
-# @app.errorhandler(405)
-# def server_error(error):
-#     return render_template('errors/405.html'), 405
+@app.errorhandler(422)
+def server_error(error):
+    return render_template('errors/422.html'), 422
 
 
-# @app.errorhandler(409)
-# def server_error(error):
-#     return render_template('errors/405.html'), 409
+@app.errorhandler(405)
+def server_error(error):
+    return render_template('./errors/405.html'), 405
 
 
-# def main(req: func.HttpRequest) -> func.HttpResponse:
-#     logging.info('Python HTTP trigger function processed a request.')
-#     logging.info(req.params)
-#     uri = req.params['uri']
-#     print(uri)
-#     print(req.method)
+@app.errorhandler(409)
+def server_error(error):
+    return render_template('./errors/405.html'), 409
 
-#     # with app.test_client() as c:
-#     #     print(c.post(uri))
-
-#     #     # message = req.params.get('body')
-#     #     # print(req.get_body())
-
-#     #     doAction = {
-#     #         "POST": c.post(uri).data,
-#     #         "GET": c.get(uri).data,
-#     #         "DELETE": c.delete(uri).data
-#     #     }
-
-#     #     resp = doAction.get(req.method).decode()
-
-#     headers = {
-#         'mimetype': 'text/html',
-#         'Access-Control-Allow-Origin': '*'
-#     }
-
-#     return func.HttpResponse('', headers=headers)
 
 def main(req: func.HttpRequest, context: func.Context) -> func.HttpResponse:
     print(req.method)
