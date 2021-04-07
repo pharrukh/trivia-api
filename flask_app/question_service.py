@@ -74,10 +74,7 @@ class Question_Service:
     #   Try using the word "title" to start.
     #   '''
     def search(self, text):
-        print('text', text)
-        filtered_questions = [
-            q for q in self.questions if text in q['question']]
-        return filtered_questions
+        return [ q for q in self.questions if text in q['question']]
 
     #   '''
     #   @TODO:

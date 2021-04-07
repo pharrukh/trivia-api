@@ -4,7 +4,6 @@ from flask_app import app
  
 # TEST_DB = 'test.db'
  
- 
 class BasicTests(unittest.TestCase):
  
     ############################
@@ -33,6 +32,14 @@ class BasicTests(unittest.TestCase):
 #### tests ####
 ###############
  
+    def test_get_non_existing_endpoint(self):
+        response = self.app.get('/non-existing-endpoint')
+        self.assertEqual(response.status_code, 404)
+ 
+    def test_not_allowed_method(self):
+        response = self.app.delete('/categories')
+        self.assertEqual(response.status_code, 405)
+
     def test_get_categories(self):
         response = self.app.get('/categories')
         json_data = response.get_json()
