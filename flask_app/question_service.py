@@ -33,10 +33,9 @@ class Question_Service:
     #   '''
 
     def get_by_category_name(self, category_name):
-        filtered_questions = [
-            question for question in self.questions if question['category'] == category_name
+        return [
+            q for q in self.questions if q['category'] == category_name
         ]
-        return filtered_questions
 
     #   '''
     #   @TODO:
@@ -60,7 +59,7 @@ class Question_Service:
     #   '''
     def remove(self, id):
         filtered_questions = [
-            question for question in self.questions if question['id'] != id
+            q for q in self.questions if q['id'] != id
         ]
         self.questions = filtered_questions
 
@@ -108,12 +107,13 @@ class Question_Service:
 def get(questions, skip, take=10):
     count = 0
     result = []
-    for question in questions:
+    for q in questions:
         if skip > count:
             count += 1
             continue
-        result.append(question)
+        result.append(q)
         count += 1
         if len(result) == take:
             break
+
     return result
