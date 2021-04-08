@@ -13,3 +13,4 @@ ehthumbs.db
 Thumbs.db
 .python_packages
 .venv
+local.settings.json
