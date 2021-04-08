@@ -2,8 +2,6 @@ from flask import Flask, request, abort, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS, cross_origin
 from .models import setup_db, db, Question, Category
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.orm import contains_eager
 
 QUESTIONS_PER_PAGE = 10
 
@@ -67,8 +65,8 @@ def search_questions():
     if not data:
         return '', 400
 
-    if "searchTerm" in data: # TODO: refactor to python casing
-        query_result = Question.query.filter(Question.question.ilike(f'%{data["searchTerm"]}%')).all()
+    if "search_term" in data:
+        query_result = Question.query.filter(Question.question.ilike(f'%{data["search_term"]}%')).all()
         questions = [q.format() for q in query_result]
 
         return jsonify({
@@ -142,6 +140,7 @@ def server_error(error):
 @app.errorhandler(409)
 def server_error(error):
     return render_template('./errors/405.html'), 409
+
 
 def get_categories():
     result = {}
