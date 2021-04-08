@@ -172,6 +172,17 @@ psql trivia_test < trivia.psql
 python test_flask_app.py
 ```
 
+## manual testing
+
+If you unluckily run out of connections and the app throws 500, run the following command:
+```
+SELECT pg_terminate_backend(pg_stat_activity.pid)
+FROM pg_stat_activity
+WHERE pg_stat_activity.datname = '' -- ← change this to your DB
+  AND pid <> pg_backend_pid();
+```
+Keep in mind that you might need to wait until at least one connection is available.
+
 ## deployment
 
 Build and release service by Microsoft, Azure DevOps handles the deployment.
