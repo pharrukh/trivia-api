@@ -8,6 +8,15 @@ Can be found [here](https://github.com/pharrukh/trivia-api/blob/master/requireme
 
 ## getting Started
 
+### install azure functions
+
+```bash
+brew tap azure/functions
+brew install azure-functions-core-tools@3
+# if upgrading on a machine that has 2.x installed
+brew link --overwrite azure-functions-core-tools@3
+```
+
 ### installing Dependencies
 
 ```bash
