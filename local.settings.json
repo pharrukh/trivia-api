@@ -1,0 +1,14 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AzureWebJobsStorage": "",
+    "DATABASE_NAME":"dfj2jdsscc1r93",
+    "USER_NAME":"klmizgpktfuhif",
+    "USER_PASSWORD":"d5fd32af1e088c58ba30884e1230e94c1f8bdfe254d4c87b98d111ba81bb8db3",
+    "SERVER_HOST":"ec2-54-217-195-234.eu-west-1.compute.amazonaws.com"
+  },
+  "Host": {
+    "CORS": "*"
+  }
+}
