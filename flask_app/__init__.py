@@ -23,11 +23,20 @@ def after_request(response):
 @app.route('/quizzes', methods=['POST'])
 @cross_origin()
 def quizzes():
-    # TODO: fix me
     data = request.get_json()
-    query_result = Question.query.filter( (~Question.id.in_(data['previous_questions'])) & (Question.category == data['quiz_category'])).one()
-    question = query_result.format()
-    return jsonify({'question': question})
+    previous_questions = data['previous_questions']
+    quiz_category = data['quiz_category']
+
+    query_result = None
+    if quiz_category:
+        query_result = Question.query.filter( (~Question.id.in_(previous_questions)) & (Question.category == quiz_category)).first()
+    else:
+        query_result = Question.query.filter( (~Question.id.in_(previous_questions))).first()
+
+    if not query_result:
+        return jsonify( { 'question':None } )
+
+    return jsonify({'question': query_result.format()})
 
 
 @app.route('/categories', methods=['GET'])
