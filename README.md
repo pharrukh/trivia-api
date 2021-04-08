@@ -160,7 +160,7 @@ To run the tests, run
 dropdb trivia_test
 createdb trivia_test
 psql trivia_test < trivia.psql
-python test_flaskr.py
+python test_flask_app.py
 ```
 
 ## deployment

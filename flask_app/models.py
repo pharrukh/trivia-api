@@ -2,14 +2,15 @@ import os
 from sqlalchemy import Column, String, Integer, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
-print()
+from dotenv import load_dotenv
 
+load_dotenv()
 database_name = os.environ['DATABASE_NAME']
 user_name = os.environ['USER_NAME']
 user_password = os.environ['USER_PASSWORD']
 server_host = os.environ['SERVER_HOST']
 
-database_path = "postgres://{}/{}".format(f'{user_name}:{user_password}@{server_host}:5432', database_name)
+database_path = "postgresql://{}/{}".format(f'{user_name}:{user_password}@{server_host}:5432', database_name)
 
 db = SQLAlchemy()
 
@@ -34,7 +35,7 @@ class Question(db.Model):
   id = Column(Integer, primary_key=True)
   question = Column(String)
   answer = Column(String)
-  category = Column(String)
+  category = Column(Integer)
   difficulty = Column(Integer)
 
   def __init__(self, question, answer, category, difficulty):
